@@ -15,7 +15,6 @@
   "authorizationObjects": [
     {
       "authObjectName": "S_START",
-      "authObjectText": "Start Authorization Check for TADIR Objects",
       "maintenanceStatus": "noDefault"
     },
     {

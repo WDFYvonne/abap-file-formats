@@ -14,7 +14,6 @@
   "authorizationObjects": [
     {
       "authObjectName": "S_ABAPDUMP",
-      "authObjectText": "Authorization for ABAP Dump Analysis",
       "maintenanceStatus": "noDefault"
     },
     {
