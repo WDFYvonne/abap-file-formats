@@ -19,7 +19,6 @@
     },
     {
       "authObjectName": "S_TABU_NAM",
-      "authObjectText": "Table Access by Generic Standard Tools",
       "maintenanceStatus": "defaultWithValues",
       "authObjectFieldValues": [
         {
