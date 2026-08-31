@@ -1,51 +1,53 @@
 INTERFACE zif_aff_auth_types_v1
   PUBLIC.
 
+
+  TYPES:
   "! <p class="shorttext">Application Name</p>
   "! Application name of authorization defaults
-  TYPES ty_application_name TYPE c LENGTH 132.
-
+    ty_application_name TYPE c LENGTH 132.
+  TYPES:
   "! <p class="shorttext">Application Type</p>
   "! Type of authorization defaults (on-premise: up to 80 chars, cloud: object type up to 4 chars)
-  TYPES ty_application_type TYPE c LENGTH 80.
-
+    ty_application_type TYPE c LENGTH 80.
   "! <p class="shorttext">Documentation</p>
   "! Authorization default documentation
   TYPES ty_documentation TYPE string.
-
+  TYPES:
   "! <p class="shorttext">Maintenance Mode</p>
   "! Maintenance modes for applications define how applications can be modified.
   "! $values {@link zif_aff_auth_types_v1.data:co_maintenance_mode}
   "! $default {@link zif_aff_auth_types_v1.data:co_maintenance_mode.manual}
-  TYPES ty_maintenance_mode   TYPE c LENGTH 1.
-
+    ty_maintenance_mode   TYPE c LENGTH 1.
+  TYPES:
   "! $values {@link zif_aff_auth_types_v1.data:co_default_values_required}
   "! $default {@link zif_aff_auth_types_v1.data:co_default_values_required.yes}
-  TYPES ty_default_values_required TYPE c LENGTH 1.
-
+  "! Indicates that no authorization defaults are defined.
+  "! Used on cloud systems only.
+    ty_default_values_required TYPE c LENGTH 1.
+  TYPES:
   "! <p class="shorttext">Maintenance Status</p>
   "! The maintenance status of an authorization object controls if AUTHORITY-CHECK runs for it
-  "! in its application andwhether an authorization default is added to a data of role
+  "! in its application and whether an authorization default is added to a data of role
   "! by the profile generator when the app is in the role menu.
   "! $values {@link zif_aff_auth_types_v1.data:co_maintenance_status}
   "! $default {@link zif_aff_auth_types_v1.data:co_maintenance_status.default_with_values}
-  TYPES ty_maintenance_status TYPE c LENGTH 1.
-
+    ty_maintenance_status TYPE c LENGTH 1.
+  TYPES:
   "! <p class="shorttext">Authorization Object</p>
   "! Name of authorization object
-  TYPES ty_auth_object_name TYPE c LENGTH 10.
-
+    ty_auth_object_name TYPE c LENGTH 10.
+  TYPES:
   "! <p class="shorttext">Authorization Object Text</p>
   "! Description of the authorization object
-  TYPES ty_auth_object_text TYPE c LENGTH 60.
-
+    ty_auth_object_text TYPE c LENGTH 60.
+  TYPES:
   "! <p class="shorttext">Authorization Field</p>
   "! Authorization field
-  TYPES ty_auth_field TYPE c LENGTH 10.
+    ty_auth_field TYPE c LENGTH 10.
   "! <p class="shorttext">Authorization Value</p>
   "! Authorization value
   TYPES ty_auth_value TYPE zif_aff_types_v1=>ty_object_name_40.
-
   TYPES:
     "! <p class="shorttext">Authorization Field Values</p>
     "! Authorization defaults authorization field value
@@ -55,17 +57,15 @@ INTERFACE zif_aff_auth_types_v1
       auth_field_name       TYPE ty_auth_field,
       "! <p class="shorttext">From</p>
       "! From value
-      "! $showAlways
       auth_field_low_value  TYPE ty_auth_value,
       "! <p class="shorttext">To</p>
       "! To value
       auth_field_high_value TYPE ty_auth_value,
     END OF ty_authorization_field.
-
+  TYPES:
   "! <p class="shorttext">Authorization Field Values</p>
   "! Authorization defaults authorization field values
-  TYPES ty_authorization_field_t TYPE STANDARD TABLE OF ty_authorization_field WITH DEFAULT KEY.
-
+    ty_authorization_field_t TYPE STANDARD TABLE OF ty_authorization_field WITH DEFAULT KEY.
   TYPES:
     BEGIN OF ty_general_information,
       "! <p class="shorttext">Name</p>
@@ -96,7 +96,6 @@ INTERFACE zif_aff_auth_types_v1
       "! Authorization defaults documentation for application.
       documentation           TYPE ty_documentation,
     END OF ty_general_information.
-
   TYPES:
     "! <p class="shorttext">Authorization Object Details</p>
     "! Authorization default values define which authorization objects and field values are automatically
@@ -107,9 +106,6 @@ INTERFACE zif_aff_auth_types_v1
       "! Name of the authorization object
       "! $required
       auth_object_name         TYPE ty_auth_object_name,
-      "! <p class="shorttext">Object Text</p>
-      "! Description of the authorization object
-      auth_object_text         TYPE ty_auth_object_text,
       "! <p class="shorttext">Maintenance Status</p>
       "! The maintenance status of an authorization object controls if AUTHORITY-CHECK runs for
       "! it in its application and whether an authorization default is added to a data of role
@@ -122,8 +118,8 @@ INTERFACE zif_aff_auth_types_v1
       "! Authorization defaults authorization field value
       auth_object_field_values TYPE ty_authorization_field_t,
     END OF ty_authorization_object.
-  TYPES ty_authorization_object_t TYPE STANDARD TABLE OF ty_authorization_object WITH KEY auth_object_name.
-
+  TYPES:
+    ty_authorization_object_t TYPE STANDARD TABLE OF ty_authorization_object WITH KEY auth_object_name.
 
   CONSTANTS:
     "! <p class="shorttext">Maintenance Mode</p>
@@ -156,7 +152,6 @@ INTERFACE zif_aff_auth_types_v1
       "! are not needed any more.
       obsolete                TYPE ty_maintenance_mode VALUE 'O',
     END OF co_maintenance_mode.
-
   CONSTANTS:
     "! <p class="shorttext">Default Values Are Required</p>
     BEGIN OF co_default_values_required,
@@ -167,7 +162,6 @@ INTERFACE zif_aff_auth_types_v1
       "! Default values are not required
       no  TYPE ty_default_values_required VALUE '0',
     END OF co_default_values_required.
-
   CONSTANTS:
     "! <p class="shorttext">Maintenance Status</p>
     "! The maintenance status of an authorization object controls if AUTHORITY-CHECK runs for it in its application and
@@ -202,5 +196,4 @@ INTERFACE zif_aff_auth_types_v1
       "! Used on cloud systems only.
       no_authorization_check TYPE ty_maintenance_status VALUE 'N',
     END OF co_maintenance_status.
-
 ENDINTERFACE.

@@ -163,12 +163,6 @@
             "type": "string",
             "maxLength": 10
           },
-          "authObjectText": {
-            "title": "Object Text",
-            "description": "Description of the authorization object",
-            "type": "string",
-            "maxLength": 60
-          },
           "maintenanceStatus": {
             "title": "Maintenance Status",
             "description": "The maintenance status of an authorization object controls if AUTHORITY-CHECK runs for it in its application and whether an authorization default is added to a data of role by the profile generator when the app is in the role menu.",
