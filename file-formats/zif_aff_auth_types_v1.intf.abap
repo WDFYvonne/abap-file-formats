@@ -39,10 +39,6 @@ INTERFACE zif_aff_auth_types_v1
   "! Name of authorization object
     ty_auth_object_name TYPE c LENGTH 10.
   TYPES:
-  "! <p class="shorttext">Authorization Object Text</p>
-  "! Description of the authorization object
-    ty_auth_object_text TYPE c LENGTH 60.
-  TYPES:
   "! <p class="shorttext">Authorization Field</p>
   "! Authorization field
     ty_auth_field TYPE c LENGTH 10.
