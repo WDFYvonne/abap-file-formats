@@ -64,7 +64,7 @@ INTERFACE zif_aff_auth_types_v1
   "! Authorization defaults authorization field values
     ty_authorization_field_t TYPE STANDARD TABLE OF ty_authorization_field WITH DEFAULT KEY.
   TYPES:
-    BEGIN OF ty_general_information,
+    BEGIN OF ty_general_info_sush_susi,
       "! <p class="shorttext">Name</p>
       "! Name of the authorization default
       "! $required
@@ -92,7 +92,7 @@ INTERFACE zif_aff_auth_types_v1
       "! <p class="shorttext">Documentation</p>
       "! Authorization defaults documentation for application.
       documentation           TYPE ty_documentation,
-    END OF ty_general_information.
+    END OF ty_general_info_sush_susi.
   TYPES:
     "! <p class="shorttext">Authorization Object Details</p>
     "! Authorization default values define which authorization objects and field values are automatically
